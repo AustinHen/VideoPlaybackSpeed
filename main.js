@@ -37,11 +37,13 @@ function update_video_speed(settings, speed)
 
 function draw_tool(settings)
 {
-    document.body.appendChild(`
+    let to_add = document.createElement("div");
+    to_add.innerHtml = `
             <div> 
                 <div class="playbackspeedAsh"></div>
             </div>
-        `);
+        `;
+    document.body.appendChild(to_add);
 }
 
 setup();
