@@ -18,8 +18,10 @@ Alternatively you can copy my code into TamperMonkey.
 Some sites (like YouTube) require scripts to be registered through the Google Store. TamperMonkey lets you get around this requirement.   
 # Key bindings
 <kbd>s</kbd> + 0.1 speed
+
 <kbd>d</kbd> - 0.1 speed
-<kbd>a</kbd> + set speed to 1
+
+<kbd>a</kbd> set speed to 1
 # Issues 
 I have yet to make a gui for this. It also lacks a lot of polish. It does work well on Echo360 which is what I wanted out of it. 
 
