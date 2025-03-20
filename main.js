@@ -6,7 +6,7 @@ function setup()
         playback_speed: 1,
         step_size: 0.1,
         force_update: true,
-        update_delay: 1,
+        update_delay: 0.01,
     };
 
     //Adds event listener
@@ -14,7 +14,7 @@ function setup()
         if(e.key == 's') update_video_speed(settings, settings.playback_speed + settings.step_size);
         if(e.key == 'd') update_video_speed(settings, settings.playback_speed - settings.step_size);
         if(e.key == 'a') update_video_speed(settings, 1);
-        if(e.key == 'x') update_video_speed(settings, 1);
+        if(e.key == 'x') draw_tool(settings);
     });
 }
 
@@ -30,10 +30,18 @@ function update_video_speed(settings, speed)
     }else{
         update();
     }
+
+    //updates text for draw tool
+    document.querySelectorAll("playbackspeedAsh").forEach(text => text.innerHtml = " " + settings.playback_speed);
 }
 
-function draw_tool(){
-
+function draw_tool(settings)
+{
+    document.body.appendChild(`
+            <div> 
+                <div class="playbackspeedAsh"></div>
+            </div>
+        `);
 }
 
 setup();
