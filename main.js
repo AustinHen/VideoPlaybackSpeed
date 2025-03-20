@@ -22,7 +22,8 @@ function update_video_speed(settings, speed)
 {
     console.log("update speed to: " + speed);
     settings.playback_speed = speed;
-    document.querySelector('video').playbackRate = settings.playback_speed;
+
+    document.querySelectorAll('video').forEach(video => {video.playbackRate = settings.playback_speed;});
 }
 
 function draw_tool(){
