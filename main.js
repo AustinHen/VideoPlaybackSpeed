@@ -1,3 +1,4 @@
+//javascript:fetch("https://raw.githubusercontent.com/AustinHen/VideoPlaybackSpeed/main/main.js").then(a=>a.text()).then(eval)
 
 function setup()
 {
@@ -19,6 +20,7 @@ function setup()
 
 function update_video_speed(settings, speed)
 {
+    console.log("update speed to: " + speed);
     settings.playback_speed = speed;
     document.querySelector('video').playbackRate = settings.playback_speed;
 }
