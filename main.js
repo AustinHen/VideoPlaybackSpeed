@@ -6,7 +6,7 @@ function setup()
         playback_speed: 1,
         step_size: 0.1,
         force_update: true,
-        update_rate: 1,
+        update_delay: 1,
     };
 
     //Adds event listener
@@ -23,7 +23,13 @@ function update_video_speed(settings, speed)
     console.log("update speed to: " + speed);
     settings.playback_speed = speed;
 
-    document.querySelectorAll('video').forEach(video => {video.playbackRate = settings.playback_speed;});
+    let update = () => document.querySelectorAll('video').forEach(video => {video.playbackRate = settings.playback_speed;});
+    if(settings.force_update){
+        clearInterval();
+        setInterval(update, settings.update_delay);
+    }else{
+        update();
+    }
 }
 
 function draw_tool(){
