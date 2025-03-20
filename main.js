@@ -32,7 +32,7 @@ function update_video_speed(settings, speed)
     }
 
     //updates text for draw tool
-    document.querySelectorAll("playbackspeedAsh").forEach(text => text.innerHtml = " " + settings.playback_speed);
+    document.querySelectorAll("playbackspeedAsh").forEach(text => text.innerHTML = " " + settings.playback_speed);
 }
 
 function draw_tool(settings)
@@ -40,6 +40,7 @@ function draw_tool(settings)
     let to_add = document.createElement("p");
     to_add.classList.add('playbackspeedAsh');
     document.body.appendChild(to_add);
+    document.querySelectorAll("playbackspeedAsh").forEach(text => text.innerHTML = " " + settings.playback_speed);
 }
 
 setup();
