@@ -64,6 +64,8 @@ function draw_tool()
             position:absolute;
             background-color:white;
             padding: 5px;
+            top:0px;
+            left:0px;
             margin: 0;
             border-radius:5px;
             text-align:center;
