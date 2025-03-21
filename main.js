@@ -2,6 +2,8 @@
 
 function setup()
 {
+    if(document.querySelector('#ashVideoSpeed') != NULL) return; //already have one running
+
     const settings = {
         playback_speed: 1,
         step_size: 0.1,
@@ -59,7 +61,7 @@ function update_video_speed(settings, speed)
 
 function draw_tool()
 {
-    data = `
+    let data = `
         <p id="ashVideoSpeed" style="
             position:absolute;
             background-color:white;
