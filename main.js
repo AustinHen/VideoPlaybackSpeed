@@ -2,7 +2,7 @@
 
 function setup()
 {
-    if(document.querySelector('#ashVideoSpeed') != NULL) return; //already have one running
+    if(document.querySelector('#ashVideoSpeed') != null) return; //already have one running
 
     const settings = {
         playback_speed: 1,
