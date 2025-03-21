@@ -9,17 +9,41 @@ function setup()
         update_delay: 0.01,
     };
 
+    draw_tool();
+    let tracked=false;
+    let rel_pos = {x:0, y:0};
+    const tool = document.getElementById("ashVideoSpeed");
+    tool.addEventListener('mousedown', (e) => {
+        tracked = true;
+
+        const tool_pos = tool.getBoundingClientRect();
+        rel_pos.x = tool_pos.left - e.clientX;
+        rel_pos.y = tool_pos.top - e.clientY;
+    });
+
+    tool.addEventListener('mouseup', () => {
+        tracked = false;
+    });
+
+    document.addEventListener('mousemove', function (e) {
+        if(!tracked) return;
+
+        tool.style.left = rel_pos.x + e.clientX + "px";
+        tool.style.top = rel_pos.y + e.clientY + "px";
+    });
+
     //Adds event listener
     document.addEventListener('keydown', function (e) {
         if(e.key == 's') update_video_speed(settings, settings.playback_speed + settings.step_size);
         if(e.key == 'd') update_video_speed(settings, settings.playback_speed - settings.step_size);
         if(e.key == 'a') update_video_speed(settings, 1);
-        if(e.key == 'x') draw_tool(settings);
+        if(e.key == 'x') toggle_tool_vis();
     });
 }
 
 function update_video_speed(settings, speed)
 {
+    if(speed <= 0) speed = .1;
     console.log("update speed to: " + speed);
     settings.playback_speed = speed;
 
@@ -30,17 +54,44 @@ function update_video_speed(settings, speed)
     }else{
         update();
     }
-
-    //updates text for draw tool
-    document.querySelectorAll(".playbackspeedAsh").forEach(text => text.innerHTML = " " + settings.playback_speed);
+    update_tool_text(speed);
 }
 
-function draw_tool(settings)
+function draw_tool()
 {
-    let to_add = document.createElement("p");
-    to_add.classList.add('playbackspeedAsh');
-    document.body.appendChild(to_add);
-    document.querySelectorAll(".playbackspeedAsh").forEach(text => text.innerHTML = " " + settings.playback_speed);
+    data = `
+        <p id="ashVideoSpeed" style="
+            position:absolute;
+            background-color:white;
+            padding: 5px;
+            margin: 0;
+            border-radius:5px;
+            text-align:center;
+            z-index: 9;
+        ">
+        1.0x
+        <p>
+    `; 
+    const parser = new DOMParser();
+    const content = parser.parseFromString(data , 'text/html').querySelector("#ashVideoSpeed");
+
+    document.body.appendChild(content);
 }
+
+function toggle_tool_vis()
+{
+    const tool = document.querySelector('#ashVideoSpeed');
+    if(tool.style.display === 'none'){
+        tool.style.display = 'block';
+    }else{
+        tool.style.display = 'none';
+    }
+}
+
+function update_tool_text(new_speed)
+{
+    document.querySelector('#ashVideoSpeed').innerHTML = new_speed.toFixed(1) + "x";
+}
+
 
 setup();
