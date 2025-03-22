@@ -71,7 +71,7 @@ function draw_tool()
             margin: 0;
             border-radius:5px;
             text-align:center;
-            z-index: 9;
+            z-index: 2147483647;
         ">
         1.0x
         <p>
