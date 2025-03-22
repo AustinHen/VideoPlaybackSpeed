@@ -23,7 +23,7 @@ function setup()
         rel_pos.y = tool_pos.top - e.clientY;
     });
 
-    tool.addEventListener('mouseup', () => {
+    document.addEventListener('mouseup', () => {
         tracked = false;
     });
 
