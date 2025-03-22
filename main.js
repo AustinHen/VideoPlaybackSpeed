@@ -71,13 +71,13 @@ function draw_tool()
             margin: 0;
             border-radius:5px;
             text-align:center;
-            z-index: 2147483647;
+            z-index: 9;
         ">
         1.0x
         <p>
     `; 
     const parser = new DOMParser();
-    const content = parser.parseFromString(data , 'text/html').querySelector("#ashVideoSpeed");
+    const content = parser.parseFromString(data, 'text/html').querySelector("#ashVideoSpeed");
 
     document.body.appendChild(content);
 }
