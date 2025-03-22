@@ -81,7 +81,8 @@ function draw_tool()
 
     let first_vid = document.querySelector('video');
     if(first_vid != null){
-        first_vid.appendChild(content);
+        document.body. insertAdjacentHTML("afterend", content);
+        //first_vid.appendChild(content);
     }else{
         document.body. insertAdjacentHTML("afterend", content);
 
