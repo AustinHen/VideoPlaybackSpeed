@@ -79,14 +79,7 @@ function draw_tool()
     const parser = new DOMParser();
     const content = parser.parseFromString(data , 'text/html').querySelector("#ashVideoSpeed");
 
-    let first_vid = document.querySelector('video');
-    if(first_vid != null){
-        document.body. insertAdjacentHTML("afterend", content);
-        //first_vid.appendChild(content);
-    }else{
-        document.body. insertAdjacentHTML("afterend", content);
-
-    }
+    document.body.appendChild("afterend", content);
 }
 
 function toggle_tool_vis()
