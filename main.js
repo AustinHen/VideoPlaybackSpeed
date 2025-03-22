@@ -71,7 +71,7 @@ function draw_tool()
             margin: 0;
             border-radius:5px;
             text-align:center;
-            z-index: 10000;
+            z-index: 2147483647;
         ">
         1.0x
         <p>
@@ -79,7 +79,7 @@ function draw_tool()
     const parser = new DOMParser();
     const content = parser.parseFromString(data , 'text/html').querySelector("#ashVideoSpeed");
 
-    document.body.appendChild("afterend", content);
+    document.body.appendChild(content);
 }
 
 function toggle_tool_vis()
