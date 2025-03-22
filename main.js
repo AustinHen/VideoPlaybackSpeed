@@ -83,7 +83,7 @@ function draw_tool()
     if(first_vid != null){
         first_vid.appendChild(content);
     }else{
-        document.body. insertAdjacentHTML(content);
+        document.body. insertAdjacentHTML("afterend", content);
 
     }
 }
