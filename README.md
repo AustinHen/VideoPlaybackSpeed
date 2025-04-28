@@ -22,6 +22,7 @@ Some sites (like YouTube) require scripts to be registered through the Google St
 <kbd>d</kbd> - 0.1 speed
 
 <kbd>a</kbd> set speed to 1
-# Issues 
-I have yet to make a gui for this. It also lacks a lot of polish. It does work well on Echo360 which is what I wanted out of it. 
 
+<kbd>x</kbd> toggles gui
+
+You can also drag around the gui 
