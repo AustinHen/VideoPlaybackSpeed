@@ -25,4 +25,4 @@ Some sites (like YouTube) require scripts to be registered through the Google St
 
 <kbd>x</kbd> toggles gui
 
-You can also drag around the gui 
+You can also drag the gui around
